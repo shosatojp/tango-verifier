@@ -2,6 +2,8 @@
 
 ![](https://github.com/shosatojp/tango-verifier/workflows/Node.js%20CI/badge.svg)
 
+maybe monad based request parameter verifier for web application.
+
 ## install
 ```sh
 npm i tango-verifier
