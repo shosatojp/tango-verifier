@@ -1,11 +1,15 @@
 # tango-verifier
 
+![](https://github.com/shosatojp/tango-verifier/workflows/Node.js%20CI/badge.svg)
+
+## install
 ```sh
 npm i tango-verifier
 ```
 
-## simple example
+* no dependencies
 
+## simple example
 ```ts
 
 const req = {
@@ -19,7 +23,7 @@ const req = {
 await constraint(req.body, {
     userName: isString,
     age: isNumber,
-}, true);
+});
 
 ```
 
@@ -59,7 +63,8 @@ await constraint(req.body, {
         food: isString
     },
     age: isNumberRange(0, 150)
-});
+}, true);
+//  👆 allow extra keys
 ```
 
 ## operators
