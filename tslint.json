@@ -1,0 +1,16 @@
+{
+    "$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/tslint.json",
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "no-console": false,
+        "object-literal-shorthand": false,
+        "no-var-requires": false,
+        "no-string-literal": false,
+        "no-bitwise": false
+    },
+    "rulesDirectory": []
+}

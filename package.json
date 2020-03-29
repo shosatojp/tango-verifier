@@ -1,0 +1,28 @@
+{
+    "name": "tango-verifier",
+    "version": "0.1.0",
+    "description": "maybe monad based params verifier",
+    "scripts": {
+        "start": "ts-node-dev --respawn --poll --interval 100 test/main.ts",
+        "build": "mkdir -p dist && tsc",
+        "lint": "tslint --fix \"src/*.ts\" \"test/*.ts\"",
+        "clean": "rm -rf dist",
+        "test": "ts-node test/main.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shosatojp/tango-verifier.git"
+    },
+    "author": "Sho Sato <me@shosato.jp> (https://shosato.jp)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/shosatojp/tango-verifier/issues"
+    },
+    "homepage": "https://github.com/shosatojp/tango-verifier#readme",
+    "devDependencies": {
+        "@types/node": "^13.9.5",
+        "ts-node-dev": "^1.0.0-pre.44",
+        "tslint": "^6.1.0",
+        "typescript": "^3.8.3"
+    }
+}
