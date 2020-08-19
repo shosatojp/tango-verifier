@@ -23,10 +23,12 @@ export async function isString(a: any, name: string): Promise<void> {
         throw errorMessage(`${name} must be string`);
 }
 
+// NumberLike
 export async function isNumber(a: any, name: string): Promise<void> {
     if (isNaN(Number(a)))
         throw errorMessage(`'${name}' cannot convert to number`);
 }
+
 
 export async function isInteger(a: string, name: string): Promise<void> {
     if (!(Number(a) % 1))
@@ -41,6 +43,13 @@ export async function notNullString(a: any, name: string): Promise<void> {
 export async function isArray(a: any, name: string): Promise<void> {
     if (!(a instanceof Array))
         throw errorMessage(`'${name}' is not array`);
+}
+
+export async function isEmailAddress(a: any, name: string): Promise<void> {
+    await matchRegex(/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)(a, name)
+        .catch(() => {
+            throw errorMessage(`'${name}' is not a valied email expression`);
+        });
 }
 
 /**
@@ -75,6 +84,16 @@ export function isArrayOf(child: Verifier): Verifier {
         await isArray(a, name);
         for (let i = 0, length = a.length; i < length; i++) {
             await child(a[i], `${name}[${i}]`);
+        }
+    }
+}
+
+export function containsCharsOfRange(chars: string, min: number, max: number) {
+    return async (a: string, name: string): Promise<void> => {
+        await isString(a, name);
+        const count = (a.match(new RegExp(`[${chars}]`, 'g')) || []).length;
+        if (!(min <= count && count <= max)) {
+            throw errorMessage(`contains chars of range verification failed for ${name}`);
         }
     }
 }

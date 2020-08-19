@@ -1,6 +1,6 @@
 {
     "name": "tango-verifier",
-    "version": "0.1.0",
+    "version": "0.1.3",
     "description": "maybe monad based params verifier",
     "scripts": {
         "start": "ts-node-dev --respawn --poll --interval 100 test/main.ts",

@@ -1,4 +1,4 @@
-import { isString, constraint, isNumber, matchRegex, isStringRange, isArrayOf, or, isArray, and } from '../src';
+import { isString, constraint, isNumber, matchRegex, isStringRange, isArrayOf, or, isArray, and, isEmailAddress } from '../src';
 
 async function test(promise: Promise<void>, expectedResult: boolean = true) {
     promise.then(() => {
@@ -18,7 +18,8 @@ const req = {
             height: 180,
             weight: 70,
             food: 'apple',
-        }
+        },
+        emailAddress: 'hogehoge+ho@example.com'
     }
 };
 
@@ -41,7 +42,8 @@ const req = {
             weight: isNumber,
             food: isString
         },
-        age: isNumber
+        age: isNumber,
+        emailAddress: isEmailAddress
     });
 
 
